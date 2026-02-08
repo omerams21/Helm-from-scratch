@@ -30,3 +30,9 @@ Each resource template is wrapped with `{{- if ...enabled }}` so we can turn it 
 `helm upgrade --install` ensures the release is created if it doesn't exist, or upgraded if it already exists.
 Deploying into a dedicated namespace (`-n myapp --create-namespace`) keeps the Kubernetes output isolated from other workloads, so `kubectl get` commands show only resources created by this chart.
 
+## Part 3 – Explanation
+
+Upgrading the image tag changes the Deployment manifest rendered by Helm.
+Running `helm upgrade` applies the updated manifest and Kubernetes performs a rolling update (new pod is created with the new image while the old pod terminates).
+
+In our case, the example tag `0.3.0` was not available in the registry (manifest not found), so we used a valid tag (`latest`) to complete the required image upgrade.

@@ -1,0 +1,16 @@
+Release "myapp" has been upgraded. Happy Helming!
+NAME: myapp
+LAST DEPLOYED: Sun Feb  8 21:39:31 2026
+NAMESPACE: myapp
+STATUS: deployed
+REVISION: 3
+TEST SUITE: None
+deployment "myapp-myapp" successfully rolled out
+hashicorp/http-echo:latest
+NAME                           READY   STATUS        RESTARTS   AGE
+myapp-myapp-5645d98989-9gwm8   1/1     Terminating   0          10m
+myapp-myapp-7897f6b7b7-868hl   1/1     Running       0          9s
+deployment "myapp-myapp" successfully rolled out
+hashicorp/http-echo:latest
+NAME                           READY   STATUS    RESTARTS   AGE
+myapp-myapp-7897f6b7b7-868hl   1/1     Running   0          79s

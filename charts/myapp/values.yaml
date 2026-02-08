@@ -1,6 +1,6 @@
 image:
   repository: hashicorp/http-echo
-  tag: "0.2.3"
+  tag: "latest"
   pullPolicy: IfNotPresent
   command:
     - "-text=Hello from Helm"

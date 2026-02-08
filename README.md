@@ -17,3 +17,14 @@ I deployed the chart using `helm upgrade --install` into a dedicated namespace t
 ```bash
 helm upgrade --install myapp ./charts/myapp -n myapp --create-namespace |& tee outputs/helm-install.txt
 
+
+## Part 3 – Image Version Upgrade
+
+The assignment suggested upgrading the image tag (example: `0.3.0`).  
+In our environment, the tag `0.3.0` was not available (manifest not found), so we upgraded from `0.2.3` to a valid tag: `latest`.
+
+Upgrade command:
+
+```bash
+helm upgrade --install myapp ./charts/myapp -n myapp |& tee outputs/helm-upgrade.txt
+
