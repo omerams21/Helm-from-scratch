@@ -1,0 +1,41 @@
+Release "myapp" does not exist. Installing it now.
+NAME: myapp
+LAST DEPLOYED: Sun Feb  8 21:29:20 2026
+NAMESPACE: myapp
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/myapp-myapp-5645d98989-9gwm8   1/1     Running   0          6s
+
+NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/myapp-myapp   ClusterIP   10.104.204.5   <none>        5678/TCP   6s
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/myapp-myapp   1/1     1            1           6s
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/myapp-myapp-5645d98989   1         1         1       6s
+NAME               DATA   AGE
+kube-root-ca.crt   1      6s
+myapp-myapp-cm     1      6s
+NAME                          TYPE                 DATA   AGE
+myapp-myapp-secret            Opaque               1      6s
+sh.helm.release.v1.myapp.v1   helm.sh/release.v1   1      6s
+NAME                               READY   STATUS    RESTARTS   AGE
+pod/myapp-myapp-5645d98989-9gwm8   1/1     Running   0          82s
+
+NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/myapp-myapp   ClusterIP   10.104.204.5   <none>        5678/TCP   82s
+
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/myapp-myapp   1/1     1            1           82s
+
+NAME                                     DESIRED   CURRENT   READY   AGE
+replicaset.apps/myapp-myapp-5645d98989   1         1         1       82s
+NAME               DATA   AGE
+kube-root-ca.crt   1      82s
+myapp-myapp-cm     1      82s
+NAME                          TYPE                 DATA   AGE
+myapp-myapp-secret            Opaque               1      82s
+sh.helm.release.v1.myapp.v1   helm.sh/release.v1   1      82s

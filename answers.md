@@ -24,3 +24,9 @@ Examples:
 - `include "myapp.fullname" .` uses helper functions to generate consistent names
 
 Each resource template is wrapped with `{{- if ...enabled }}` so we can turn it on/off via values.
+
+## Part 2 – Explanation
+
+`helm upgrade --install` ensures the release is created if it doesn't exist, or upgraded if it already exists.
+Deploying into a dedicated namespace (`-n myapp --create-namespace`) keeps the Kubernetes output isolated from other workloads, so `kubectl get` commands show only resources created by this chart.
+
