@@ -1,35 +1,27 @@
-Release "myapp" has been upgraded. Happy Helming!
+Release "myapp" does not exist. Installing it now.
 NAME: myapp
-LAST DEPLOYED: Sun Feb  8 22:10:59 2026
-NAMESPACE: myapp
+LAST DEPLOYED: Sun Feb  8 22:12:53 2026
+NAMESPACE: myapp-assignment
 STATUS: deployed
-REVISION: 9
+REVISION: 1
 TEST SUITE: None
-NAME                               READY   STATUS    RESTARTS   AGE
-pod/myapp-myapp-6449c8dd44-s5gp8   1/1     Running   0          12m
+NAME                               READY   STATUS              RESTARTS   AGE
+pod/myapp-myapp-6449c8dd44-mx26k   0/1     ContainerCreating   0          0s
 
-NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-service/myapp-myapp   ClusterIP   10.104.204.5   <none>        5678/TCP   41m
+NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/myapp-myapp   ClusterIP   10.102.24.163   <none>        5678/TCP   0s
 
 NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/myapp-myapp   1/1     1            1           41m
+deployment.apps/myapp-myapp   0/1     1            0           0s
 
 NAME                                     DESIRED   CURRENT   READY   AGE
-replicaset.apps/myapp-myapp-5645d98989   0         0         0       41m
-replicaset.apps/myapp-myapp-6449c8dd44   1         1         1       12m
-replicaset.apps/myapp-myapp-77f94b9487   0         0         0       34m
-replicaset.apps/myapp-myapp-7897f6b7b7   0         0         0       31m
+replicaset.apps/myapp-myapp-6449c8dd44   1         1         0       0s
 NAME               DATA   AGE
-kube-root-ca.crt   1      41m
-myapp-myapp-cm     1      41m
+kube-root-ca.crt   1      0s
+myapp-myapp-cm     1      0s
 NAME                          TYPE                 DATA   AGE
-myapp-myapp-secret            Opaque               1      41m
-sh.helm.release.v1.myapp.v1   helm.sh/release.v1   1      41m
-sh.helm.release.v1.myapp.v2   helm.sh/release.v1   1      34m
-sh.helm.release.v1.myapp.v3   helm.sh/release.v1   1      31m
-sh.helm.release.v1.myapp.v4   helm.sh/release.v1   1      27m
-sh.helm.release.v1.myapp.v5   helm.sh/release.v1   1      25m
-sh.helm.release.v1.myapp.v6   helm.sh/release.v1   1      24m
-sh.helm.release.v1.myapp.v7   helm.sh/release.v1   1      12m
-sh.helm.release.v1.myapp.v8   helm.sh/release.v1   1      8m5s
-sh.helm.release.v1.myapp.v9   helm.sh/release.v1   1      0s
+myapp-myapp-secret            Opaque               1      1s
+sh.helm.release.v1.myapp.v1   helm.sh/release.v1   1      1s
+deployment "myapp-myapp" successfully rolled out
+NAME                           READY   STATUS    RESTARTS   AGE
+myapp-myapp-6449c8dd44-mx26k   1/1     Running   0          68s
