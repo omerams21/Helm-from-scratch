@@ -1,41 +1,35 @@
-Release "myapp" does not exist. Installing it now.
+Release "myapp" has been upgraded. Happy Helming!
 NAME: myapp
-LAST DEPLOYED: Sun Feb  8 21:29:20 2026
+LAST DEPLOYED: Sun Feb  8 22:10:59 2026
 NAMESPACE: myapp
 STATUS: deployed
-REVISION: 1
+REVISION: 9
 TEST SUITE: None
 NAME                               READY   STATUS    RESTARTS   AGE
-pod/myapp-myapp-5645d98989-9gwm8   1/1     Running   0          6s
+pod/myapp-myapp-6449c8dd44-s5gp8   1/1     Running   0          12m
 
 NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-service/myapp-myapp   ClusterIP   10.104.204.5   <none>        5678/TCP   6s
+service/myapp-myapp   ClusterIP   10.104.204.5   <none>        5678/TCP   41m
 
 NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/myapp-myapp   1/1     1            1           6s
+deployment.apps/myapp-myapp   1/1     1            1           41m
 
 NAME                                     DESIRED   CURRENT   READY   AGE
-replicaset.apps/myapp-myapp-5645d98989   1         1         1       6s
+replicaset.apps/myapp-myapp-5645d98989   0         0         0       41m
+replicaset.apps/myapp-myapp-6449c8dd44   1         1         1       12m
+replicaset.apps/myapp-myapp-77f94b9487   0         0         0       34m
+replicaset.apps/myapp-myapp-7897f6b7b7   0         0         0       31m
 NAME               DATA   AGE
-kube-root-ca.crt   1      6s
-myapp-myapp-cm     1      6s
+kube-root-ca.crt   1      41m
+myapp-myapp-cm     1      41m
 NAME                          TYPE                 DATA   AGE
-myapp-myapp-secret            Opaque               1      6s
-sh.helm.release.v1.myapp.v1   helm.sh/release.v1   1      6s
-NAME                               READY   STATUS    RESTARTS   AGE
-pod/myapp-myapp-5645d98989-9gwm8   1/1     Running   0          82s
-
-NAME                  TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-service/myapp-myapp   ClusterIP   10.104.204.5   <none>        5678/TCP   82s
-
-NAME                          READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/myapp-myapp   1/1     1            1           82s
-
-NAME                                     DESIRED   CURRENT   READY   AGE
-replicaset.apps/myapp-myapp-5645d98989   1         1         1       82s
-NAME               DATA   AGE
-kube-root-ca.crt   1      82s
-myapp-myapp-cm     1      82s
-NAME                          TYPE                 DATA   AGE
-myapp-myapp-secret            Opaque               1      82s
-sh.helm.release.v1.myapp.v1   helm.sh/release.v1   1      82s
+myapp-myapp-secret            Opaque               1      41m
+sh.helm.release.v1.myapp.v1   helm.sh/release.v1   1      41m
+sh.helm.release.v1.myapp.v2   helm.sh/release.v1   1      34m
+sh.helm.release.v1.myapp.v3   helm.sh/release.v1   1      31m
+sh.helm.release.v1.myapp.v4   helm.sh/release.v1   1      27m
+sh.helm.release.v1.myapp.v5   helm.sh/release.v1   1      25m
+sh.helm.release.v1.myapp.v6   helm.sh/release.v1   1      24m
+sh.helm.release.v1.myapp.v7   helm.sh/release.v1   1      12m
+sh.helm.release.v1.myapp.v8   helm.sh/release.v1   1      8m5s
+sh.helm.release.v1.myapp.v9   helm.sh/release.v1   1      0s
