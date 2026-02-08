@@ -36,3 +36,26 @@ We checked the Helm release history:
 ```bash
 helm history myapp -n myapp |& tee outputs/helm-history.txt
 
+
+## Part 5 – ConfigMap and Secret Usage
+
+The chart stores application configuration in a ConfigMap and sensitive data in a Secret:
+
+- ConfigMap: `myapp-myapp-cm`
+- Secret: `myapp-myapp-secret`
+
+Both are injected into the Deployment (and also implemented in the DaemonSet template) using:
+
+- `envFrom` (loads all keys as environment variables)
+- `volumes` + `volumeMounts` (mounts them as files)
+
+Mounted paths:
+
+- ConfigMap mounted to `/config`
+- Secret mounted to `/secrets` (read-only)
+
+After upgrading the release, we verified that the Deployment manifest contains the required configuration injection:
+
+```bash
+helm get manifest myapp -n myapp | grep -nE "envFrom|configMapRef|secretRef|volumeMounts|mountPath|volumes|secretName"
+

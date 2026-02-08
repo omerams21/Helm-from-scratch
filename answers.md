@@ -41,3 +41,35 @@ In this case, the example tag `0.3.0` was not available in the registry (manifes
 
 `helm rollback <release> <revision>` re-deploys the manifests from a previous revision.
 This is useful for quickly restoring a working version if an upgrade introduced a problem.
+
+## Part 4 – Explanation
+
+`helm history` displays all revisions of a Helm release.
+Each `helm upgrade` creates a new revision.
+
+`helm rollback` redeploys a previous revision, which is useful for restoring a stable version after a failed upgrade.
+
+## Part 5 – Explanation (ConfigMap & Secret)
+
+A ConfigMap is used to store non-sensitive configuration (such as messages, ports, or application settings).
+A Secret is used to store sensitive data (such as API tokens, passwords, or keys).
+
+In this Helm chart:
+
+- The ConfigMap is created from `values.yaml` under `configmap.data`
+- The Secret is created from `values.yaml` under `secret.stringData`
+
+Both resources are injected into the Deployment and DaemonSet using two methods:
+
+1. **envFrom**
+   - `configMapRef` loads ConfigMap values as environment variables
+   - `secretRef` loads Secret values as environment variables
+
+2. **volumes + volumeMounts**
+   - The ConfigMap is mounted as files under `/config`
+   - The Secret is mounted as files under `/secrets` (read-only)
+
+This approach allows changing configuration without rebuilding the container image.
+
+Note: The container image `hashicorp/http-echo` is very minimal and does not include common Linux utilities such as `ls`, therefore `kubectl exec ... ls` fails.  
+Instead, we verified the configuration injection by inspecting the Helm rendered manifest.

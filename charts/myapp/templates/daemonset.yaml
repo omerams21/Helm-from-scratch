@@ -18,6 +18,13 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/component: daemonset
     spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ include "myapp.fullname" . }}-cm
+        - name: secret-volume
+          secret:
+            secretName: {{ include "myapp.fullname" . }}-secret
       containers:
         - name: http-echo
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -27,4 +34,16 @@ spec:
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "myapp.fullname" . }}-cm
+            - secretRef:
+                name: {{ include "myapp.fullname" . }}-secret
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+            - name: secret-volume
+              mountPath: /secrets
+              readOnly: true
 {{- end }}
+
