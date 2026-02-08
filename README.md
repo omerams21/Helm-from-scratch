@@ -28,3 +28,11 @@ Upgrade command:
 ```bash
 helm upgrade --install myapp ./charts/myapp -n myapp |& tee outputs/helm-upgrade.txt
 
+
+## Part 4 – Helm History & Rollback
+
+We checked the Helm release history:
+
+```bash
+helm history myapp -n myapp |& tee outputs/helm-history.txt
+

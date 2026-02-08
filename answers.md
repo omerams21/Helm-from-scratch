@@ -35,4 +35,9 @@ Deploying into a dedicated namespace (`-n myapp --create-namespace`) keeps the K
 Upgrading the image tag changes the Deployment manifest rendered by Helm.
 Running `helm upgrade` applies the updated manifest and Kubernetes performs a rolling update (new pod is created with the new image while the old pod terminates).
 
-In our case, the example tag `0.3.0` was not available in the registry (manifest not found), so we used a valid tag (`latest`) to complete the required image upgrade.
+In this case, the example tag `0.3.0` was not available in the registry (manifest not found), so I used a valid tag (`latest`) to complete the required image upgrade.
+
+`helm history` shows all revisions of a Helm release. Each upgrade creates a new revision.
+
+`helm rollback <release> <revision>` re-deploys the manifests from a previous revision.
+This is useful for quickly restoring a working version if an upgrade introduced a problem.

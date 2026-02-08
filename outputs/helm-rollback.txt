@@ -1,0 +1,5 @@
+Rollback was a success! Happy Helming!
+deployment "myapp-myapp" successfully rolled out
+hashicorp/http-echo:0.2.3
+NAME                           READY   STATUS    RESTARTS   AGE
+myapp-myapp-5645d98989-xtjpk   1/1     Running   0          46s
