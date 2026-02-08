@@ -1,0 +1,26 @@
+{{- if .Values.cronjob.enabled }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "myapp.fullname" . }}-cron
+  labels:
+    {{- include "myapp.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.cronjob.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app.kubernetes.io/name: {{ include "myapp.name" . }}
+            app.kubernetes.io/instance: {{ .Release.Name }}
+            app.kubernetes.io/component: cronjob
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: http-echo
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              args:
+                {{- toYaml .Values.image.command | nindent 16 }}
+{{- end }}

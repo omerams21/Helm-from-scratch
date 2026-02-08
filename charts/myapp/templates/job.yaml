@@ -1,0 +1,23 @@
+{{- if .Values.job.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "myapp.fullname" . }}-job
+  labels:
+    {{- include "myapp.labels" . | nindent 4 }}
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "myapp.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/component: job
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: http-echo
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            {{- toYaml .Values.image.command | nindent 12 }}
+{{- end }}

@@ -1,0 +1,34 @@
+image:
+  repository: hashicorp/http-echo
+  tag: "0.2.3"
+  pullPolicy: IfNotPresent
+  command:
+    - "-text=Hello from Helm"
+
+service:
+  type: ClusterIP
+  port: 5678
+
+deployment:
+  enabled: true
+  replicaCount: 1
+
+daemonset:
+  enabled: false
+
+job:
+  enabled: false
+
+cronjob:
+  enabled: false
+  schedule: "*/5 * * * *"
+
+configmap:
+  enabled: true
+  data:
+    MESSAGE: "Hello from ConfigMap"
+
+secret:
+  enabled: true
+  stringData:
+    API_KEY: "change-me"
